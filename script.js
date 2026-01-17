@@ -1,4 +1,4 @@
-// I Cube Engineering - SPA Logic
+// I Cubic Engineering - SPA Logic
 
 document.addEventListener('DOMContentLoaded', () => {
     // Initial load: Check hash or default to home

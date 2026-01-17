@@ -1,4 +1,4 @@
-/* I Cube Engineering - Custom Styles */
+/* I Cubic Engineering - Custom Styles */
 
 /* General Setup */
 body {
@@ -91,23 +91,88 @@ body {
     text-align: justify;
 }
 
+
 .card-title {
     margin-bottom: 20px;
 }
 
-/* Home Title Background */
-/* Home Title Background */
-.home-title-bg {
-    background-image: url('bg.ce.png');
+/* Hero Section Background */
+#home {
+    background-color: #ffffff; /* revert to white or transparent if needed */
+    position: relative;
+    padding-top: 20px; /* Further reduced from 40px */
+    padding-bottom: 80px; 
+}
+
+/* Glassmorphism Effect - Now Card Background */
+.glass-panel {
+    /* Image with lighter white overlay */
+    background: linear-gradient(rgba(255, 255, 255, 0.4), rgba(255, 255, 255, 0.4)), url('title-bg.png');
     background-size: cover;
     background-position: center;
     background-repeat: no-repeat;
-    /* optional: parallax effect */
-    background-attachment: fixed;
-    padding: 100px 20px;
-    border-radius: 15px;
-    /* Reducing overlay opacity to make image more visible */
-    background-blend-mode: overlay;
-    background-color: rgba(255, 255, 255, 0.6);
+    background-attachment: fixed; /* Scroll based parallax effect */
+    
+    border: 1px solid rgba(0, 0, 0, 0.1);
+    border-radius: 16px;
+    padding: 3rem; 
     box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
+    margin-bottom: 2rem;
+}
+
+/* Hover Lift Effect */
+.hover-lift {
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.hover-lift:hover {
+    transform: translateY(-10px);
+    box-shadow: 0 15px 30px rgba(0, 0, 0, 0.1) !important;
+}
+
+/* New Attractive Styles */
+.text-gradient {
+    background: linear-gradient(135deg, #0056b3 0%, #004494 100%);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    background-clip: text;
+}
+
+.icon-box {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    width: 80px;
+    height: 80px;
+    background: linear-gradient(135deg, #e0eafc 0%, #cfdef3 100%);
+    color: #0056b3;
+    border-radius: 50%;
+    margin-bottom: 1.5rem;
+    box-shadow: 0 5px 15px rgba(0,0,0,0.1);
+    transition: transform 0.3s ease;
+}
+
+.card:hover .icon-box {
+    transform: scale(1.1) rotate(5deg);
+}
+
+.feature-card {
+    border: none;
+    border-radius: 12px;
+    background: #ffffff;
+    box-shadow: 0 5px 20px rgba(0,0,0,0.05);
+    transition: all 0.3s ease;
+}
+
+.feature-card:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 15px 30px rgba(0,50,100,0.1);
+}
+
+.glass-alert {
+    background: rgba(255, 255, 255, 0.9);
+    backdrop-filter: blur(10px);
+    border: 1px solid rgba(255, 255, 255, 0.5);
+    border-radius: 16px;
+    box-shadow: 0 10px 30px rgba(0,0,0,0.1);
 }
