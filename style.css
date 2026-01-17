@@ -174,5 +174,46 @@ body {
     backdrop-filter: blur(10px);
     border: 1px solid rgba(255, 255, 255, 0.5);
     border-radius: 16px;
+    border-radius: 16px;
     box-shadow: 0 10px 30px rgba(0,0,0,0.1);
+}
+
+/* --- Scroll Animations --- */
+
+/* Base State: Hidden and shifted down */
+.animate-on-scroll {
+    opacity: 0;
+    transform: translateY(30px);
+    transition: opacity 0.8s ease-out, transform 0.8s ease-out;
+    will-change: opacity, transform;
+}
+
+/* Visible State: Fully visible and in place */
+.animate-on-scroll.is-visible {
+    opacity: 1;
+    transform: translateY(0);
+}
+
+/* Staggered Delays (for grids/lists) */
+.delay-100 { transition-delay: 0.1s; }
+.delay-200 { transition-delay: 0.2s; }
+.delay-300 { transition-delay: 0.3s; }
+.delay-400 { transition-delay: 0.4s; }
+.delay-500 { transition-delay: 0.5s; }
+
+/* Different Animation Directions (optional usage) */
+.animate-left {
+    transform: translateX(-30px);
+}
+
+.animate-right {
+    transform: translateX(30px);
+}
+
+.animate-scale {
+    transform: scale(0.9);
+}
+
+.animate-scale.is-visible {
+    transform: scale(1);
 }
