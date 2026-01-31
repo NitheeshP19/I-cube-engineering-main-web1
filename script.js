@@ -7,7 +7,68 @@ document.addEventListener("DOMContentLoaded", () => {
 
   // Initialize Scroll Animations
   setupScrollAnimations();
+  
+  // Run Advanced Hero Animations
+  runHeroAnimations();
 });
+
+/**
+ * Advanced Hero Animations using Anime.js
+ */
+function runHeroAnimations() {
+  // Wrap Title text in spans for letter animation
+  const title = document.getElementById('hero-title');
+  if (title) {
+    title.innerHTML = title.textContent.replace(/\S/g, "<span class='letter' style='display:inline-block'>$&</span>");
+  }
+
+  // Wrap Tagline text for decoding effect
+  const tagline = document.getElementById('hero-tagline');
+  if (tagline) {
+    // Split by character including spaces (handled by preservation)
+    const text = tagline.textContent;
+    let wrapped = '';
+    for(let char of text) {
+        wrapped += `<span class='letter' style='opacity:0; display:inline-block'>${char === ' ' ? '&nbsp;' : char}</span>`;
+    }
+    tagline.innerHTML = wrapped;
+  }
+
+  // Ensure Anime.js is loaded
+  if (typeof anime !== 'undefined') {
+      const tl = anime.timeline({
+        easing: 'easeOutExpo',
+        duration: 750
+      });
+
+      tl
+      // 1. Animate Title Letters: Scale and Fade In Staggered
+      .add({
+        targets: '#hero-title .letter',
+        translateY: [100, 0],
+        translateZ: 0,
+        opacity: [0, 1],
+        easing: "easeOutExpo",
+        duration: 1400,
+        delay: (el, i) => 300 + 30 * i
+      })
+      // 2. Animate Tagline: Decoding effect (Fade in + slight scale)
+      .add({
+        targets: '#hero-tagline .letter',
+        opacity: [0, 1],
+        scale: [0.3, 1],
+        translateY: [20, 0],
+        easing: "easeOutElastic(1, .8)",
+        duration: 1200,
+        delay: (el, i) => 20 * i
+      }, '-=1000');
+  } else {
+      console.warn("Anime.js not loaded, skipping hero animations");
+      // Fallback: make visible if anime.js fails
+      if(title) title.style.opacity = 1;
+      if(tagline) tagline.style.opacity = 1;
+  }
+}
 
 // Handle Browser Back/Forward buttons
 window.addEventListener("popstate", () => {
@@ -65,6 +126,9 @@ function showSection(sectionId, event, updateState = true) {
   const targetSection = document.getElementById(sectionId);
   if (targetSection) {
     targetSection.classList.add("active-section");
+    
+    // 2.5 Reset and re-trigger animations for this section
+    resetAndAnimateSection(targetSection);
   }
 
   // 3. Update Navigation Links Active State
@@ -93,6 +157,39 @@ function showSection(sectionId, event, updateState = true) {
     });
     bsCollapse.hide();
   }
+}
+
+/**
+ * Reset animations and re-trigger for a section
+ * @param {HTMLElement} section
+ */
+function resetAndAnimateSection(section) {
+  const animatedElements = section.querySelectorAll(".animate-on-scroll");
+  
+  // Reset all animations first
+  animatedElements.forEach((el) => {
+    el.classList.remove("is-visible");
+  });
+  
+  // Small delay then re-observe
+  setTimeout(() => {
+    const observerOptions = {
+      root: null,
+      rootMargin: "0px",
+      threshold: 0.1,
+    };
+
+    const observer = new IntersectionObserver((entries, obs) => {
+      entries.forEach((entry) => {
+        if (entry.isIntersecting) {
+          entry.target.classList.add("is-visible");
+          obs.unobserve(entry.target);
+        }
+      });
+    }, observerOptions);
+
+    animatedElements.forEach((el) => observer.observe(el));
+  }, 50);
 }
 
 /**

@@ -1,36 +1,107 @@
-/* I Cubic Engineering - Custom Styles */
+/* I CUBE ENGINEERING LLP - Brand Styles */
+
+/* Google Fonts Import - Russo One (similar to Pronave) and PT Sans */
+@import url('https://fonts.googleapis.com/css2?family=Russo+One&family=PT+Sans:ital,wght@0,400;0,700;1,400;1,700&display=swap');
+
+/* ============================================
+   BRAND COLOR VARIABLES (Matching Visiting Card)
+   ============================================ */
+:root {
+    --brand-blue: #1a5ba8;        /* Primary Blue from visiting card */
+    --brand-blue-dark: #14457a;   /* Darker blue for hover states */
+    --brand-blue-light: #2a6fc4;  /* Lighter blue for accents */
+    --brand-orange: #f58220;      /* Orange from visiting card */
+    --brand-orange-dark: #d96e10; /* Darker orange for hover */
+    --brand-white: #ffffff;
+    --brand-gray: #333333;
+}
 
 /* General Setup */
 body {
-    background-color: #ffffff;
-    /* White Theme */
-    color: #333333;
-    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    background-color: var(--brand-white);
+    color: var(--brand-gray);
+    font-family: 'PT Sans', 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
     overflow-x: hidden;
 }
 
-/* Primary Color Definition - Blue */
+/* Brand Typography - Pronave style (using Russo One) */
+.brand-heading,
+.navbar-brand,
+h1, h2, h3, h4.text-primary.fw-bold,
+.display-4, .display-5 {
+    font-family: 'Russo One', sans-serif !important;
+    letter-spacing: 1px;
+}
+
+/* Tagline Typography - PT Sans with ORANGE color from visiting card */
+.tagline,
+.lead.text-muted,
+p.lead.text-muted.fst-italic {
+    font-family: 'PT Sans', sans-serif !important;
+    font-style: italic;
+    color: var(--brand-orange) !important; /* Vibrant Orange from visiting card */
+}
+
+/* ============================================
+   PRIMARY COLOR - BRAND BLUE (From Visiting Card)
+   ============================================ */
 .bg-primary {
-    background-color: #0056b3 !important;
-    /* Professional Deep Blue */
+    background-color: var(--brand-blue) !important;
 }
 
 .text-primary {
-    color: #0056b3 !important;
+    color: var(--brand-blue) !important;
 }
 
 .border-primary {
-    border-color: #0056b3 !important;
+    border-color: var(--brand-blue) !important;
 }
 
 .btn-primary {
-    background-color: #0056b3;
-    border-color: #004494;
+    background-color: var(--brand-blue);
+    border-color: var(--brand-blue-dark);
 }
 
 .btn-primary:hover {
-    background-color: #004494;
-    border-color: #003366;
+    background-color: var(--brand-blue-dark);
+    border-color: var(--brand-blue-dark);
+}
+
+/* Outline button with brand colors */
+.btn-outline-primary {
+    color: var(--brand-blue);
+    border-color: var(--brand-blue);
+}
+
+.btn-outline-primary:hover {
+    background-color: var(--brand-blue);
+    border-color: var(--brand-blue);
+    color: var(--brand-white);
+}
+
+/* ============================================
+   ACCENT COLOR - BRAND ORANGE (From Visiting Card)
+   ============================================ */
+.text-orange,
+.text-accent {
+    color: var(--brand-orange) !important;
+}
+
+.bg-orange,
+.bg-accent {
+    background-color: var(--brand-orange) !important;
+}
+
+.btn-orange {
+    background-color: var(--brand-orange);
+    border-color: var(--brand-orange-dark);
+    color: var(--brand-white);
+}
+
+.btn-orange:hover {
+    background-color: var(--brand-orange-dark);
+    border-color: var(--brand-orange-dark);
+    color: var(--brand-white);
 }
 
 /* Navbar Tuning */
@@ -76,14 +147,178 @@ body {
     }
 }
 
-/* Service Cards Hover Effect */
-.service-card {
-    transition: transform 0.3s ease, box-shadow 0.3s ease;
+/* ============================================
+   ENHANCED SERVICES SECTION STYLING
+   Inspired by Visiting Card Design
+   ============================================ */
+
+/* Services Section Background */
+#services {
+    background: linear-gradient(180deg, #ffffff 0%, #f8fafc 50%, #ffffff 100%);
+    position: relative;
 }
 
-.service-card:hover {
-    transform: translateY(-5px);
-    box-shadow: 0 10px 20px rgba(0, 0, 0, 0.1) !important;
+/* Service Cards - Premium Enhancement */
+#services .card {
+    border: none;
+    border-radius: 16px;
+    background: linear-gradient(145deg, #ffffff 0%, #fafbfc 100%);
+    box-shadow: 0 4px 20px rgba(26, 91, 168, 0.08);
+    transition: all 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+    position: relative;
+    overflow: hidden;
+}
+
+#services .card::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 5px;
+    background: linear-gradient(90deg, var(--brand-blue) 0%, var(--brand-blue) 70%, var(--brand-orange) 70%, var(--brand-orange) 100%);
+}
+
+#services .card:hover {
+    transform: translateY(-8px);
+    box-shadow: 0 20px 40px rgba(26, 91, 168, 0.15);
+}
+
+/* Service Images - Arc Border Design (Like Visiting Card) */
+#services .img-fluid {
+    border-radius: 12px;
+    position: relative;
+    transition: transform 0.4s ease;
+}
+
+#services .card:hover .img-fluid {
+    transform: scale(1.02);
+}
+
+/* Image Container with Arc Border */
+#services .col-lg-5 {
+    position: relative;
+}
+
+#services .col-lg-5::before {
+    content: '';
+    position: absolute;
+    top: -8px;
+    left: -8px;
+    right: -8px;
+    bottom: -8px;
+    border: 3px solid var(--brand-blue);
+    border-radius: 50% 50% 50% 50% / 60% 60% 40% 40%;
+    opacity: 0.2;
+    z-index: -1;
+}
+
+/* Decorative Gear Icon Overlay */
+#services h3::before {
+    content: '⚙';
+    position: absolute;
+    right: 20px;
+    top: 20px;
+    font-size: 3rem;
+    opacity: 0.05;
+    color: var(--brand-blue);
+}
+
+/* Section Headings Enhancement */
+#services h3.text-primary {
+    position: relative;
+    padding-left: 15px;
+}
+
+#services h3.text-primary::after {
+    content: '';
+    position: absolute;
+    left: 0;
+    top: 50%;
+    transform: translateY(-50%);
+    width: 4px;
+    height: 70%;
+    background: linear-gradient(180deg, var(--brand-blue) 0%, var(--brand-orange) 100%);
+    border-radius: 2px;
+}
+
+/* Sub-headings Enhancement */
+#services h5.text-primary {
+    position: relative;
+    padding-bottom: 8px;
+    display: inline-block;
+}
+
+#services h5.text-primary::after {
+    content: '';
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    width: 40px;
+    height: 2px;
+    background: var(--brand-orange);
+    border-radius: 1px;
+}
+
+/* List Enhancements */
+#services ul {
+    position: relative;
+}
+
+#services ul li {
+    position: relative;
+    padding-left: 5px;
+    margin-bottom: 8px;
+    transition: transform 0.2s ease;
+}
+
+#services ul li:hover {
+    transform: translateX(5px);
+}
+
+/* Alert Box Enhancement */
+#services .alert {
+    border-radius: 12px;
+    border: none;
+    border-left: 4px solid var(--brand-blue);
+    background: linear-gradient(90deg, rgba(26, 91, 168, 0.05) 0%, rgba(255, 255, 255, 0) 100%);
+}
+
+/* Glass Alert Enhancement */
+#services .glass-alert {
+    background: linear-gradient(135deg, rgba(26, 91, 168, 0.03) 0%, rgba(255, 255, 255, 0.9) 100%);
+    border: 1px solid rgba(26, 91, 168, 0.1);
+    padding: 1.5rem;
+}
+
+/* Divider Enhancement */
+#services hr {
+    border: none;
+    height: 2px;
+    background: linear-gradient(90deg, transparent 0%, var(--brand-blue) 20%, var(--brand-orange) 80%, transparent 100%);
+    opacity: 0.3;
+}
+
+/* Row Hover Effects for Content Blocks */
+#services .row:hover h5.text-primary {
+    color: var(--brand-blue-dark) !important;
+}
+
+/* Floating Decorative Element */
+#services .card-body {
+    position: relative;
+}
+
+#services .card-body::after {
+    content: '';
+    position: absolute;
+    bottom: 20px;
+    right: 20px;
+    width: 60px;
+    height: 60px;
+    background: linear-gradient(135deg, rgba(26, 91, 168, 0.05) 0%, rgba(245, 130, 32, 0.05) 100%);
+    border-radius: 50%;
+    z-index: 0;
 }
 
 /* Typography Enhancements */
@@ -114,10 +349,10 @@ body {
     background-attachment: fixed; /* Scroll based parallax effect */
     
     border: 1px solid rgba(0, 0, 0, 0.1);
-    border-radius: 16px;
-    padding: 3rem; 
-    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
-    margin-bottom: 2rem;
+    border-radius: 24px;
+    padding: 5rem 6rem; 
+    box-shadow: 0 15px 50px rgba(0, 0, 0, 0.15);
+    margin-bottom: 3rem;
 }
 
 /* Hover Lift Effect */
@@ -130,9 +365,9 @@ body {
     box-shadow: 0 15px 30px rgba(0, 0, 0, 0.1) !important;
 }
 
-/* New Attractive Styles */
+/* New Attractive Styles - Updated with Brand Colors */
 .text-gradient {
-    background: linear-gradient(135deg, #0056b3 0%, #004494 100%);
+    background: linear-gradient(135deg, var(--brand-blue) 0%, var(--brand-blue-dark) 100%);
     -webkit-background-clip: text;
     -webkit-text-fill-color: transparent;
     background-clip: text;
@@ -144,11 +379,11 @@ body {
     justify-content: center;
     width: 80px;
     height: 80px;
-    background: linear-gradient(135deg, #e0eafc 0%, #cfdef3 100%);
-    color: #0056b3;
+    background: linear-gradient(135deg, #e8f0fa 0%, #d4e3f5 100%);
+    color: var(--brand-blue);
     border-radius: 50%;
     margin-bottom: 1.5rem;
-    box-shadow: 0 5px 15px rgba(0,0,0,0.1);
+    box-shadow: 0 5px 15px rgba(26, 91, 168, 0.15);
     transition: transform 0.3s ease;
 }
 
@@ -159,14 +394,14 @@ body {
 .feature-card {
     border: none;
     border-radius: 12px;
-    background: #ffffff;
+    background: var(--brand-white);
     box-shadow: 0 5px 20px rgba(0,0,0,0.05);
     transition: all 0.3s ease;
 }
 
 .feature-card:hover {
     transform: translateY(-5px);
-    box-shadow: 0 15px 30px rgba(0,50,100,0.1);
+    box-shadow: 0 15px 30px rgba(26, 91, 168, 0.1);
 }
 
 .glass-alert {
@@ -174,8 +409,60 @@ body {
     backdrop-filter: blur(10px);
     border: 1px solid rgba(255, 255, 255, 0.5);
     border-radius: 16px;
-    border-radius: 16px;
     box-shadow: 0 10px 30px rgba(0,0,0,0.1);
+}
+
+/* ============================================
+   WAVE PATTERN (Like Visiting Card)
+   ============================================ */
+.wave-section {
+    position: relative;
+    overflow: hidden;
+}
+
+.wave-section::before {
+    content: '';
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    width: 100%;
+    height: 80px;
+    background: linear-gradient(90deg, var(--brand-blue) 0%, var(--brand-blue) 60%, var(--brand-orange) 60%, var(--brand-orange) 100%);
+    clip-path: ellipse(60% 100% at 50% 100%);
+}
+
+/* Footer Wave Design */
+footer {
+    position: relative;
+    overflow: hidden;
+}
+
+footer::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 6px;
+    background: linear-gradient(90deg, var(--brand-blue) 0%, var(--brand-blue) 70%, var(--brand-orange) 70%, var(--brand-orange) 100%);
+}
+
+/* Orange accent stripe */
+.accent-stripe {
+    height: 4px;
+    background: linear-gradient(90deg, var(--brand-blue) 0%, var(--brand-blue) 65%, var(--brand-orange) 65%, var(--brand-orange) 100%);
+}
+
+/* Footer Links */
+footer a.text-white:hover {
+    color: var(--brand-orange) !important;
+    text-decoration: underline !important;
+}
+
+/* Contact Address Link */
+#contact a.text-dark:hover {
+    color: var(--brand-blue) !important;
+    text-decoration: underline !important;
 }
 
 /* --- Scroll Animations --- */
@@ -216,4 +503,230 @@ body {
 
 .animate-scale.is-visible {
     transform: scale(1);
+}
+
+/* ============================================
+   MOBILE RESPONSIVE STYLES
+   ============================================ */
+
+/* Tablets and below (768px and below) */
+@media (max-width: 768px) {
+    /* Navbar adjustments */
+    .navbar-brand {
+        font-size: 0.9rem !important;
+        letter-spacing: 0 !important;
+    }
+    
+    .navbar-brand img {
+        height: 40px !important;
+        margin-right: 8px !important;
+    }
+    
+    /* Glass panel - reduce padding */
+    .glass-panel {
+        padding: 2.5rem 1.5rem !important;
+        border-radius: 16px;
+        margin-bottom: 1.5rem;
+    }
+    
+    /* Heading sizes */
+    .display-4 {
+        font-size: 1.8rem !important;
+    }
+    
+    .display-5 {
+        font-size: 1.5rem !important;
+    }
+    
+    h1 {
+        font-size: 1.6rem !important;
+    }
+    
+    h2 {
+        font-size: 1.4rem !important;
+    }
+    
+    h3 {
+        font-size: 1.2rem !important;
+    }
+    
+    /* Tagline */
+    .tagline {
+        font-size: 0.95rem !important;
+    }
+    
+    /* Lead text */
+    .lead {
+        font-size: 1rem !important;
+    }
+    
+    /* Cards */
+    .card-body {
+        padding: 1.5rem !important;
+    }
+    
+    /* Glass alert */
+    .glass-alert {
+        padding: 1.5rem !important;
+    }
+    
+    /* Container padding */
+    .container {
+        padding-left: 15px;
+        padding-right: 15px;
+    }
+}
+
+/* Mobile phones (576px and below) */
+@media (max-width: 576px) {
+    /* Navbar - make text smaller but visible */
+    .navbar-brand {
+        font-size: 0.85rem !important; /* Made visible again */
+        white-space: normal; /* Allow wrapping if needed */
+        max-width: 80%; /* Prevent overflow */
+        display: flex;
+        align-items: center;
+    }
+    
+    .navbar-brand img {
+        height: 35px !important; /* Slightly smaller logo */
+        margin-right: 8px !important;
+    }
+    
+    /* Glass panel - compact for mobile */
+    .glass-panel {
+        padding: 2rem 1rem !important;
+        border-radius: 12px;
+        margin-bottom: 1rem;
+    }
+    
+    /* Heading sizes - more compact */
+    .display-4 {
+        font-size: 1.5rem !important;
+        line-height: 1.3 !important;
+    }
+    
+    .display-5 {
+        font-size: 1.3rem !important;
+    }
+    
+    h1 {
+        font-size: 1.4rem !important;
+    }
+    
+    h2 {
+        font-size: 1.25rem !important;
+    }
+    
+    h3 {
+        font-size: 1.1rem !important;
+    }
+    
+    h4 {
+        font-size: 1rem !important;
+    }
+    
+    h5 {
+        font-size: 0.95rem !important;
+    }
+    
+    /* Tagline - single line */
+    .tagline {
+        font-size: 0.85rem !important;
+        white-space: nowrap;
+    }
+    
+    /* Lead text */
+    .lead {
+        font-size: 0.9rem !important;
+    }
+    
+    /* Small text */
+    small, .small {
+        font-size: 0.8rem !important;
+    }
+    
+    /* Body text */
+    p {
+        font-size: 0.9rem;
+    }
+    
+    /* Cards - tighter */
+    .card-body {
+        padding: 1rem !important;
+    }
+    
+    .card-body.p-5 {
+        padding: 1.25rem !important;
+    }
+    
+    .card-body.p-4 {
+        padding: 1rem !important;
+    }
+    
+    /* Glass alert */
+    .glass-alert {
+        padding: 1rem !important;
+        border-radius: 12px;
+    }
+    
+    /* Buttons */
+    .btn-lg {
+        padding: 0.5rem 1.5rem !important;
+        font-size: 0.9rem !important;
+    }
+    
+    /* Hero section */
+    #home {
+        padding-top: 10px;
+        padding-bottom: 40px;
+    }
+    
+    /* Section headers */
+    .text-center.mb-5 h2 {
+        font-size: 1.4rem !important;
+    }
+    
+    /* Lists */
+    ul li {
+        font-size: 0.9rem;
+    }
+    
+    /* Images in cards */
+    .img-fluid {
+        margin-bottom: 1rem;
+    }
+    
+    /* Footer */
+    footer {
+        padding: 1rem 0 !important;
+    }
+    
+    footer p, footer small {
+        font-size: 0.8rem !important;
+    }
+    
+    /* Contact section adjustments */
+    .form-control {
+        font-size: 0.9rem;
+    }
+    
+    .form-label {
+        font-size: 0.85rem;
+    }
+}
+
+/* Extra small devices (360px and below) */
+@media (max-width: 360px) {
+    .display-4 {
+        font-size: 1.3rem !important;
+    }
+    
+    .glass-panel {
+        padding: 1.5rem 0.75rem !important;
+    }
+    
+    .tagline {
+        font-size: 0.75rem !important;
+    }
 }
