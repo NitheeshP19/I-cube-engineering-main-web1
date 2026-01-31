@@ -524,8 +524,12 @@ footer a.text-white:hover {
     
     /* Glass panel - adjust padding */
     .glass-panel {
-        padding: 5rem 3rem !important;
-        border-radius: 16px;
+        padding: 8rem 2rem !important;
+        min-height: 60vh;
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        border-radius: 20px;
         margin-bottom: 2rem;
     }
     
@@ -593,11 +597,18 @@ footer a.text-white:hover {
         margin-right: 8px !important;
     }
     
-    /* Glass panel - compact for mobile */
+    /* Glass panel - massive for mobile as requested */
     .glass-panel {
-        padding: 5rem 2rem !important;
-        border-radius: 12px;
+        padding: 7rem 1.5rem !important;
+        min-height: 70vh; /* Takes up most of the screen */
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        border-radius: 16px;
         margin-bottom: 2rem;
+        margin-left: -10px; /* Make it slightly wider than container */
+        margin-right: -10px;
+        width: auto;
     }
     
     /* Heading sizes - more compact */
