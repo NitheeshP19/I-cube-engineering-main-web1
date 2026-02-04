@@ -30,7 +30,7 @@ app.post('/api/contact', async (req, res) => {
         // Email Content
         const mailOptions = {
             from: `"${name}" <${email}>`, // Show sender's name
-            to: 'nitheeshengineer@gmail', // Recipient
+            to: 'icubeengineeringllp@gmail.com', // Recipient
             subject: `New Contact Form Submission from ${name}`,
             text: `You have received a new message from your website contact form.
             
