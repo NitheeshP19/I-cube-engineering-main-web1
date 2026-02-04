@@ -219,18 +219,21 @@ function handleForm(event) {
       body: JSON.stringify({ 
           name: name, 
           email: email, 
-          message: message 
+          message: message,
+          _captcha: "false",
+          _template: "table",
+          _subject: "New Website Contact Message"
       })
   })
   .then(response => response.json())
   .then(data => {
-      if (data.success === "true" || data.ok) { // FormSubmit.co returns success: "true"
+      // Check for boolean success (FormSubmit sometimes returns string "true")
+      if (data.success === "true" || data.success === true) {
           alert("SUCCESS! Your message has been sent.");
           event.target.reset();
       } else {
-          console.error("Server Error:", data);
-          alert("Message sent, but check the console for details.");
-          event.target.reset(); // Usually it works even if response allows weird
+          console.error("FormSubmit Error:", JSON.stringify(data));
+          alert("Error: " + (data.message || "Could not send message. Check console."));
       }
   })
   .catch(error => {
