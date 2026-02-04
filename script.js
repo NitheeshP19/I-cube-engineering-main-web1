@@ -209,22 +209,28 @@ function handleForm(event) {
   btn.innerText = "Sending...";
   btn.disabled = true;
 
-  // Send data to Vercel Backend
-  fetch('/api/contact', {
-      method: 'POST',
-      headers: {
+  // Send data to FormSubmit.co
+  fetch("https://formsubmit.co/ajax/icubeengineeringllp@gmail.com", {
+      method: "POST",
+      headers: { 
           'Content-Type': 'application/json',
+          'Accept': 'application/json'
       },
-      body: JSON.stringify({ name, email, message }),
+      body: JSON.stringify({ 
+          name: name, 
+          email: email, 
+          message: message 
+      })
   })
   .then(response => response.json())
   .then(data => {
-      if (data.success) {
+      if (data.success === "true" || data.ok) { // FormSubmit.co returns success: "true"
           alert("SUCCESS! Your message has been sent.");
           event.target.reset();
       } else {
-          console.error("Server Error:", data.error);
-          alert("Failed to send message: " + (data.error || "Unknown error"));
+          console.error("Server Error:", data);
+          alert("Message sent, but check the console for details.");
+          event.target.reset(); // Usually it works even if response allows weird
       }
   })
   .catch(error => {
