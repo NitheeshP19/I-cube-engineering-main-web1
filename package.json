@@ -1,0 +1,19 @@
+{
+  "name": "i-cube-engineering-backend",
+  "version": "1.0.0",
+  "description": "Backend for I Cube Engineering Contact Form",
+  "main": "api/index.js",
+  "scripts": {
+    "start": "node server.js",
+    "dev": "node server.js"
+  },
+  "dependencies": {
+    "cors": "^2.8.5",
+    "dotenv": "^16.4.5",
+    "express": "^4.19.2",
+    "nodemailer": "^6.9.13"
+  },
+  "engines": {
+    "node": ">=18.x"
+  }
+}

@@ -1,0 +1,3 @@
+User-agent: *
+Allow: /
+Sitemap: https://nitheeshp19.github.io/I-cube-engineering-main-web1/sitemap.xml
