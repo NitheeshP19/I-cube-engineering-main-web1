@@ -210,7 +210,7 @@ function handleForm(event) {
   btn.disabled = true;
 
   // Send data to FormSubmit.co
-  fetch("https://formsubmit.co/ajax/icubeengineeringllp@gmail.com", {
+  fetch("https://formsubmit.co/ajax/nitheeshengineer@gmail.com", {
       method: "POST",
       headers: { 
           'Content-Type': 'application/json',
