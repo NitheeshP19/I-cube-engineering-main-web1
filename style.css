@@ -17,6 +17,10 @@
 }
 
 /* General Setup */
+html {
+    scroll-behavior: smooth;
+}
+
 body {
     background-color: var(--brand-white);
     color: var(--brand-gray);
