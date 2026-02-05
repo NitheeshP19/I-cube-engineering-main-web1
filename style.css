@@ -19,6 +19,13 @@
 /* General Setup */
 html {
     scroll-behavior: smooth;
+    scroll-snap-type: y proximity; /* Allows snapping to elements without forcing it */
+}
+
+/* Scroll Snap Alignment for Models */
+.model-container {
+    scroll-snap-align: center;
+    scroll-margin-top: 2rem; /* Adds a bit of breathing room when snapped */
 }
 
 body {
