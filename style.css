@@ -129,7 +129,37 @@ p.lead.text-muted.fst-italic {
 
 /* Navbar Tuning */
 .navbar-brand i {
-    color: #ffffff;
+    color: var(--brand-blue);
+}
+
+/* Custom Navbar Style for White Background */
+.custom-navbar-style {
+    background-color: var(--brand-white) !important;
+    box-shadow: 0 2px 10px rgba(0,0,0,0.1); /* Optional: adds subtle shadow for separation */
+}
+
+.custom-navbar-style .navbar-brand {
+    color: var(--brand-blue) !important;
+}
+
+.custom-navbar-style .nav-link {
+    color: var(--brand-blue) !important;
+    font-weight: 600; /* Make it slightly bolder for better visibility on white */
+}
+
+.custom-navbar-style .nav-link:hover,
+.custom-navbar-style .nav-link.active {
+    color: var(--brand-blue-dark) !important;
+    background-color: transparent !important; /* Ensure no background clash */
+}
+
+/* Toggler Customization for Light Navbar */
+.custom-navbar-style .navbar-toggler {
+    border-color: var(--brand-blue-light);
+}
+
+.custom-navbar-style .navbar-toggler-icon {
+    background-image: url("data:image/svg+xml,%3csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 30 30'%3e%3cpath stroke='rgba(26, 91, 168, 1)' stroke-linecap='round' stroke-miterlimit='10' stroke-width='2' d='M4 7h22M4 15h22M4 23h22'/%3e%3c/svg%3e");
 }
 
 .nav-link {
@@ -654,6 +684,14 @@ footer a.text-white:hover {
 #services {
     transform-style: preserve-3d;
     perspective: 2000px;
+}
+
+/* Service Header Image */
+.service-header-img {
+    max-width: 180px;
+    width: 60%;
+    filter: drop-shadow(0 15px 30px rgba(26, 91, 168, 0.2));
+    animation: float-gentle-2 8s ease-in-out infinite;
 }
 
 /* ============================================
