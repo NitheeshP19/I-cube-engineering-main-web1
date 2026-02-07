@@ -319,22 +319,21 @@ document.addEventListener('DOMContentLoaded', () => {
 });
 
 /**
- * Update Visit Count using CountAPI
+ * Update Visit Count using CounterAPI
  */
 function updateVisitCount() {
     const counterElement = document.getElementById('visit-count');
     if (!counterElement) return;
 
-    // Fetch from local backend
-    fetch('/api/visits')
+    // Fetch from external CounterAPI (increments by 1)
+    fetch('https://api.counterapi.dev/v1/icubeengineering/visits/up')
         .then(response => response.json())
         .then(data => {
-            counterElement.innerText = data.value;
+            counterElement.innerText = data.count;
         })
         .catch(error => {
             console.error('Error fetching visit count:', error);
-            // Fallback to "..." or keep loading state if preferred, but "Error" is clear for debugging
-            counterElement.innerText = "Error"; 
+            counterElement.innerText = "Error";
         });
 }
 
