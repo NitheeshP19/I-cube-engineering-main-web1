@@ -310,10 +310,33 @@ const throttled3DScroll = throttle(handle3DImagesScroll, 16); // ~60fps
 // Add scroll listener
 window.addEventListener('scroll', throttled3DScroll);
 
+
 // Initial call
 document.addEventListener('DOMContentLoaded', () => {
   // Run after a short delay to ensure images are loaded
   setTimeout(handle3DImagesScroll, 100);
+  updateVisitCount();
 });
+
+/**
+ * Update Visit Count using CountAPI
+ */
+function updateVisitCount() {
+    const counterElement = document.getElementById('visit-count');
+    if (!counterElement) return;
+
+    // Fetch from local backend
+    fetch('/api/visits')
+        .then(response => response.json())
+        .then(data => {
+            counterElement.innerText = data.value;
+        })
+        .catch(error => {
+            console.error('Error fetching visit count:', error);
+            // Fallback to "..." or keep loading state if preferred, but "Error" is clear for debugging
+            counterElement.innerText = "Error"; 
+        });
+}
+
 
 

@@ -58,5 +58,40 @@ app.post('/api/contact', async (req, res) => {
     }
 });
 
+const fs = require('fs');
+const path = require('path');
+
+// Visit Counter Route
+app.get('/api/visits', (req, res) => {
+    const filePath = path.join(__dirname, '../visits.json');
+    
+    // Read current count
+    fs.readFile(filePath, 'utf8', (err, data) => {
+        if (err) {
+            console.error('Error reading visits file:', err);
+            // If file doesn't exist, start at 1
+            return res.json({ value: 1 });
+        }
+
+        try {
+            let json = JSON.parse(data);
+            let newValue = (json.value || 0) + 1;
+            
+            // Update file
+            fs.writeFile(filePath, JSON.stringify({ value: newValue }), (writeErr) => {
+                if (writeErr) {
+                    console.error('Error writing visits file:', writeErr);
+                }
+                // Return new value regardless of write success to keep UI responsive
+                res.json({ value: newValue });
+            });
+
+        } catch (parseErr) {
+            console.error('Error parsing visits JSON:', parseErr);
+            res.json({ value: 1 });
+        }
+    });
+});
+
 // Vercel Serverless Export
 module.exports = app;
