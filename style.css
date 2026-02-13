@@ -33,6 +33,15 @@ body {
     color: var(--brand-gray);
     font-family: 'PT Sans', 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
     overflow-x: hidden;
+    transition: background 0.5s ease;
+}
+
+body.glass-mode {
+    background: linear-gradient(rgba(255, 255, 255, 0.4), rgba(255, 255, 255, 0.4)), url('title-bg.png');
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
+    background-attachment: fixed;
 }
 
 /* Brand Typography - Pronave style (using Russo One) */
@@ -56,7 +65,10 @@ h1, h2, h3, h4.text-primary.fw-bold,
 .navbar-brand img {
     height: 85px !important; /* Large desktop logo */
     margin-right: 15px;
-    transition: height 0.3s ease;
+    transition: all 0.3s ease;
+    background: white;
+    border-radius: 50%;
+    padding: 5px;
 }
 
 /* Tagline Typography - PT Sans with ORANGE color from visiting card */
@@ -81,6 +93,12 @@ p.lead.text-muted.fst-italic {
    ============================================ */
 .bg-primary {
     background-color: var(--brand-blue) !important;
+}
+
+body.glass-mode .bg-primary {
+    background-color: rgba(26, 91, 168, 0.85) !important;
+    backdrop-filter: blur(10px);
+    -webkit-backdrop-filter: blur(10px);
 }
 
 .text-primary {
@@ -145,32 +163,55 @@ p.lead.text-muted.fst-italic {
 
 /* Custom Navbar Style for White Background */
 .custom-navbar-style {
-    background-color: var(--brand-white) !important;
-    box-shadow: 0 2px 10px rgba(0,0,0,0.1); /* Optional: adds subtle shadow for separation */
+    background-color: var(--brand-blue) !important; /* Solid blue */
+    box-shadow: 0 2px 10px rgba(0,0,0,0.1);
+    transition: background-color 0.3s ease, backdrop-filter 0.3s ease;
+}
+
+/* Custom Navbar Style for Glass Background */
+body.glass-mode .custom-navbar-style {
+    background-color: rgba(26, 91, 168, 0.85) !important; /* Semi-transparent blue */
+    backdrop-filter: blur(10px);
+    -webkit-backdrop-filter: blur(10px);
+    border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+    box-shadow: 0 4px 30px rgba(0, 0, 0, 0.1);
 }
 
 .custom-navbar-style .navbar-brand {
-    color: var(--brand-blue) !important;
+    color: var(--brand-white) !important; /* White text */
+}
+
+/* Navbar Tuning */
+.navbar-brand i {
+    color: var(--brand-orange); /* Orange icon for contrast on blue */
 }
 
 .custom-navbar-style .nav-link {
-    color: var(--brand-blue) !important;
-    font-weight: 600; /* Make it slightly bolder for better visibility on white */
+    background-color: var(--brand-white) !important; /* White button bg */
+    color: var(--brand-blue) !important; /* Blue text */
+    font-weight: 600;
+    padding: 8px 20px !important; /* Button padding */
+    border-radius: 5px; /* Slight rounding */
+    margin-left: 10px; /* Spacing between buttons */
+    transition: all 0.3s ease;
+    box-shadow: 0 2px 5px rgba(0,0,0,0.1);
 }
 
 .custom-navbar-style .nav-link:hover,
 .custom-navbar-style .nav-link.active {
+    background-color: #f0f0f0 !important; /* Slightly darker white on hover */
     color: var(--brand-blue-dark) !important;
-    background-color: transparent !important; /* Ensure no background clash */
+    transform: translateY(-2px);
+    box-shadow: 0 4px 8px rgba(0,0,0,0.15);
 }
 
-/* Toggler Customization for Light Navbar */
+/* Toggler Customization for Blue Navbar */
 .custom-navbar-style .navbar-toggler {
-    border-color: var(--brand-blue-light);
+    border-color: rgba(255,255,255,0.5);
 }
 
 .custom-navbar-style .navbar-toggler-icon {
-    background-image: url("data:image/svg+xml,%3csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 30 30'%3e%3cpath stroke='rgba(26, 91, 168, 1)' stroke-linecap='round' stroke-miterlimit='10' stroke-width='2' d='M4 7h22M4 15h22M4 23h22'/%3e%3c/svg%3e");
+    background-image: url("data:image/svg+xml,%3csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 30 30'%3e%3cpath stroke='rgba(255, 255, 255, 1)' stroke-linecap='round' stroke-miterlimit='10' stroke-width='2' d='M4 7h22M4 15h22M4 23h22'/%3e%3c/svg%3e");
 }
 
 .nav-link {
@@ -218,11 +259,11 @@ p.lead.text-muted.fst-italic {
 
 /* Services Section Background */
 #services {
-    background: linear-gradient(180deg, #ffffff 0%, #f8fafc 50%, #ffffff 100%);
+    background: transparent;
     position: relative;
 }
 
-/* Service Cards - Premium Enhancement */
+/* Service Cards - Default Style (Solid) */
 #services .card {
     border: none;
     border-radius: 16px;
@@ -231,6 +272,15 @@ p.lead.text-muted.fst-italic {
     transition: all 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275);
     position: relative;
     overflow: hidden;
+}
+
+/* Service Cards - Glass Style (Only in Glass Mode) */
+body.glass-mode #services .card {
+    border: 1px solid rgba(255, 255, 255, 0.3);
+    background: rgba(255, 255, 255, 0.2);
+    backdrop-filter: blur(10px);
+    -webkit-backdrop-filter: blur(10px);
+    box-shadow: 0 4px 30px rgba(0, 0, 0, 0.1);
 }
 
 #services .card::before {
@@ -340,12 +390,14 @@ p.lead.text-muted.fst-italic {
     transform: translateX(5px);
 }
 
-/* Alert Box Enhancement */
+/* Alert Box Enhancement - Glass Style */
 #services .alert {
     border-radius: 12px;
-    border: none;
+    border: 1px solid rgba(255, 255, 255, 0.3);
     border-left: 4px solid var(--brand-blue);
-    background: linear-gradient(90deg, rgba(26, 91, 168, 0.05) 0%, rgba(255, 255, 255, 0) 100%);
+    background: rgba(255, 255, 255, 0.25);
+    backdrop-filter: blur(5px);
+    -webkit-backdrop-filter: blur(5px);
 }
 
 /* Glass Alert Enhancement */
@@ -353,6 +405,23 @@ p.lead.text-muted.fst-italic {
     background: linear-gradient(135deg, rgba(26, 91, 168, 0.03) 0%, rgba(255, 255, 255, 0.9) 100%);
     border: 1px solid rgba(26, 91, 168, 0.1);
     padding: 1.5rem;
+}
+
+/* Global Card Style - Default */
+.card {
+    border: none;
+    border-radius: 16px;
+    background: #fff;
+    box-shadow: 0 5px 20px rgba(0,0,0,0.05);
+}
+
+/* Global Glass Card Style (Only in Glass Mode) */
+body.glass-mode .card {
+    border: 1px solid rgba(255, 255, 255, 0.3);
+    background: rgba(255, 255, 255, 0.35);
+    backdrop-filter: blur(12px);
+    -webkit-backdrop-filter: blur(12px);
+    box-shadow: 0 4px 30px rgba(0, 0, 0, 0.1);
 }
 
 /* Divider Enhancement */
@@ -366,6 +435,15 @@ p.lead.text-muted.fst-italic {
 /* Row Hover Effects for Content Blocks */
 #services .row:hover h5.text-primary {
     color: var(--brand-blue-dark) !important;
+}
+
+/* Glass Effect for White Background Utilities in Glass Context */
+body.glass-mode .glass-panel .bg-white, 
+body.glass-mode .card .bg-white {
+    background-color: rgba(255, 255, 255, 0.75) !important;
+    backdrop-filter: blur(4px);
+    -webkit-backdrop-filter: blur(4px);
+    border: 1px solid rgba(255, 255, 255, 0.4);
 }
 
 /* Floating Decorative Element */
@@ -395,28 +473,47 @@ p.lead.text-muted.fst-italic {
     margin-bottom: 20px;
 }
 
-/* Hero Section Background */
+/* Hero Section Background - Transparent */
 #home {
-    background-color: #ffffff; /* revert to white or transparent if needed */
+    background-color: transparent; 
     position: relative;
     padding-top: 20px; /* Further reduced from 40px */
     padding-bottom: 80px; 
 }
 
-/* Glassmorphism Effect - Now Card Background */
+/* Glassmorphism Effect - Transparent Panel */
+/* Glassmorphism Effect - Transparent Panel (Only in Glass Mode) */
 .glass-panel {
-    /* Image with lighter white overlay */
-    background: linear-gradient(rgba(255, 255, 255, 0.4), rgba(255, 255, 255, 0.4)), url('title-bg.png');
-    background-size: cover;
-    background-position: center;
-    background-repeat: no-repeat;
-    background-attachment: fixed; /* Scroll based parallax effect */
-    
-    border: 1px solid rgba(0, 0, 0, 0.1);
     border-radius: 24px;
-    padding: 8rem 4rem; 
-    box-shadow: 0 15px 50px rgba(0, 0, 0, 0.15);
+    padding: 6rem 3rem; 
     margin-bottom: 3rem;
+    background: transparent;
+    transition: all 0.3s ease;
+}
+
+body.glass-mode .glass-panel {
+    /* Lighter, more premium glass effect */
+    background: rgba(255, 255, 255, 0.1); 
+    backdrop-filter: blur(8px); /* Reduced blur for clarity */
+    -webkit-backdrop-filter: blur(8px);
+    
+    /* Gradient Border */
+    border: 1px solid rgba(255, 255, 255, 0.4);
+    box-shadow: 0 8px 32px 0 rgba(31, 38, 135, 0.15);
+    
+    /* Make text pop */
+    text-shadow: 0 2px 4px rgba(0,0,0,0.1);
+}
+
+/* Ensure text inside glass panel is readable */
+body.glass-mode .glass-panel h1,
+body.glass-mode .glass-panel h4,
+body.glass-mode .glass-panel p {
+    color: #0d2c52; /* Darker blue for contrast */
+}
+
+body.glass-mode .glass-panel h1 {
+    text-shadow: 2px 2px 4px rgba(255, 255, 255, 0.5);
 }
 
 /* Hover Lift Effect */
@@ -461,6 +558,14 @@ p.lead.text-muted.fst-italic {
     background: var(--brand-white);
     box-shadow: 0 5px 20px rgba(0,0,0,0.05);
     transition: all 0.3s ease;
+}
+
+body.glass-mode .feature-card {
+    border: 1px solid rgba(255, 255, 255, 0.3);
+    background: rgba(255, 255, 255, 0.25);
+    backdrop-filter: blur(10px);
+    -webkit-backdrop-filter: blur(10px);
+    box-shadow: 0 4px 30px rgba(0, 0, 0, 0.1);
 }
 
 .feature-card:hover {

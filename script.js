@@ -129,6 +129,13 @@ function showSection(sectionId, event, updateState = true) {
     
     // 2.5 Reset and re-trigger animations for this section
     resetAndAnimateSection(targetSection);
+
+    // 2.6 Toggle Glass Mode (Only for Home)
+    if (sectionId === 'home') {
+      document.body.classList.add('glass-mode');
+    } else {
+      document.body.classList.remove('glass-mode');
+    }
   }
 
   // 3. Update Navigation Links Active State
