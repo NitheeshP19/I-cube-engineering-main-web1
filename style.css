@@ -1073,3 +1073,163 @@ body {
         font-size: 0.75rem !important;
     }
 }
+
+/* ============================================
+   NEW FOOTER DESIGN - SVG WAVE STYLE
+   ============================================ */
+.footer-new {
+    width: 100%;
+    margin-top: 4rem;
+    overflow: hidden;
+}
+
+/* Wave row: layered backgrounds + SVG */
+.footer-wave-row {
+    position: relative;
+    min-height: 130px;
+    display: flex;
+}
+
+.footer-blue-bg {
+    position: absolute;
+    top: 0; left: 0;
+    width: 100%; height: 100%;
+    background-color: var(--brand-blue);
+    z-index: 0;
+}
+
+.footer-orange-bg {
+    position: absolute;
+    top: 0; right: 0;
+    width: 60%; height: 100%;
+    background-color: var(--brand-orange);
+    z-index: 1;
+}
+
+.footer-wave-svg {
+    position: absolute;
+    top: 0; left: 30%;
+    width: 25%; height: 100%;
+    z-index: 2;
+}
+
+/* Content sits on top of everything */
+.footer-wave-content {
+    position: relative;
+    z-index: 3;
+    display: flex;
+    width: 100%;
+    align-items: center;
+}
+
+.footer-left-content {
+    flex: 0 0 40%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color: var(--brand-white);
+    padding: 25px 20px;
+}
+
+.footer-right-content {
+    flex: 1;
+    display: flex;
+    align-items: flex-start;
+    color: var(--brand-white);
+    padding: 25px 30px 25px 60px;
+}
+
+.footer-icon-styled {
+    font-size: 1.8rem;
+    margin-right: 12px;
+    flex-shrink: 0;
+}
+
+.footer-left-content .footer-icon-styled {
+    color: var(--brand-white);
+}
+
+.footer-right-content .footer-icon-styled {
+    color: var(--brand-white);
+    margin-top: 4px;
+}
+
+.footer-phone {
+    font-family: 'Russo One', sans-serif;
+    font-size: 2rem;
+    letter-spacing: 1px;
+    line-height: 1;
+    white-space: nowrap;
+}
+
+.footer-address {
+    font-family: 'Russo One', sans-serif;
+    font-size: 0.95rem;
+    line-height: 1.5;
+    text-transform: uppercase;
+    letter-spacing: 0.5px;
+}
+
+.footer-bottom-strip {
+    background-color: var(--brand-white);
+    padding: 12px 0;
+    font-weight: bold;
+    color: var(--brand-blue-dark);
+    border-top: 3px solid #eee;
+}
+
+.footer-link-item {
+    display: inline-flex;
+    align-items: center;
+    color: var(--brand-blue-dark);
+    text-decoration: none;
+    font-size: 1rem;
+    font-weight: 700;
+    transition: color 0.3s ease;
+}
+
+.footer-link-item i {
+    color: var(--brand-orange);
+    margin-right: 8px;
+    font-size: 1.1rem;
+}
+
+.footer-link-item:hover {
+    color: var(--brand-orange);
+}
+
+/* Responsive Footer */
+@media (max-width: 991px) {
+    .footer-phone { font-size: 1.5rem; }
+    .footer-address { font-size: 0.85rem; }
+    .footer-right-content { padding-left: 40px; }
+}
+
+@media (max-width: 768px) {
+    .footer-wave-row {
+        flex-direction: column;
+        min-height: auto;
+    }
+    .footer-blue-bg { width: 100%; height: 50%; }
+    .footer-orange-bg { width: 100%; height: 50%; top: 50%; left: 0; }
+    .footer-wave-svg { display: none; }
+    .footer-wave-content { flex-direction: column; }
+    .footer-left-content {
+        flex: 0 0 auto;
+        width: 100%;
+        justify-content: center;
+        background: var(--brand-blue);
+        border-bottom-right-radius: 50px;
+        padding: 25px 20px;
+    }
+    .footer-right-content {
+        flex: 0 0 auto;
+        width: 100%;
+        justify-content: center;
+        background: var(--brand-orange);
+        padding: 25px 20px;
+        text-align: center;
+    }
+    .footer-address { text-align: center; }
+}
+
