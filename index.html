@@ -39,9 +39,11 @@
     <nav class="navbar navbar-expand-lg navbar-light bg-white custom-navbar-style fixed-top">
         <div class="container">
             <a class="navbar-brand fw-bold" href="#" onclick="showSection('home', event)">
-                <img src="logo bg remove.png" alt="I CUBE ENGINEERING LLP">
+                <div class="logo-wrapper">
+                <img src="logo-bg-remove.png" alt="I CUBE ENGINEERING LLP">
+            </div>
                 <div class="d-flex flex-column lh-1 align-items-center ms-2">
-                    <span class="fw-bold">I CUBE ENGINEERING LLP</span>
+                    <span class="fw-bold" style="font-family: 'Pronave', sans-serif;">I CUBE ENGINEERING LLP</span>
                     <span class="tagline mt-2 fw-bold" style="font-size: 0.8rem; letter-spacing: 1.5px;">Innovation | Intelligence | Integrity</span>
                 </div>
             </a>
@@ -75,9 +77,8 @@
             <div class="row justify-content-center">
                 <div class="col-md-10 mx-auto">
                     <div class="text-center mb-5 glass-panel">
-                        <h1 class="display-4 text-primary fw-bold mb-3 animate-on-scroll">Precision Engineering
-                            Solutions</h1>
-                        <h4 class="text-secondary mb-4 animate-on-scroll delay-100">Sourcing | Services | Design</h4>
+                        <h1 id="hero-title" class="display-4 text-primary fw-bold mb-3 animate-on-scroll">Precision Engineering <span class="d-block d-md-inline">Solutions</span></h1>
+                        <h4 id="hero-tagline" class="text-secondary mb-4 animate-on-scroll delay-100">Sourcing | Services | Design</h4>
                         <p class="lead text-dark mx-auto mb-4 animate-on-scroll delay-200" style="max-width: 800px;">
                             I CUBE ENGINEERING LLP delivers reliable mechanical engineering solutions for industrial and
                             gearbox applications. We combine engineering expertise, quality sourcing and responsive
@@ -249,11 +250,11 @@
                             <p class="text-justify mb-3">
                                 I CUBE Engineering LLP is an India-based engineering solutions company serving global
                                 industrial markets with high-quality mechanical component sourcing, gearbox spare parts,
-                                gearbox servicing, and engineering design services.
+                                gearbox servicing and engineering design services.
                             </p>
                             <p class="text-justify mb-3">
                                 We specialize in precision-engineered components such as gears, shafts, castings,
-                                machined parts, and gearbox assemblies, supporting Helical, Bevel, Worm, and Planetary
+                                machined parts and gearbox assemblies, supporting Helical, Bevel, Worm and Planetary
                                 gear systems across diverse industries worldwide.
                             </p>
                             <p class="text-justify mb-3">
@@ -264,15 +265,15 @@
                                 lifecycle support for overseas customers.
                             </p>
                             <p class="text-justify mb-0">
-                                Guided by our core values—Innovation, Intelligence, and Integrity—we focus on technical
-                                excellence, transparent communication, and long-term partnerships. At I CUBE
+                                Guided by our core values—Innovation, Intelligence and Integrity—we focus on technical
+                                excellence, transparent communication and long-term partnerships. At I CUBE
                                 Engineering, we act as a dependable engineering partner committed to performance,
                                 precision, and global reliability.
                             </p>
 
                             <div class="text-center mt-5">
                                 <h4 class="text-primary fw-bold">I CUBE Engineering LLP</h4>
-                                <p class="lead tagline fst-italic"><strong>Innovation • Intelligence •
+                                <p class="lead tagline fst-italic"><strong>Innovation | Intelligence |
                                         Integrity</strong></p>
                             </div>
                         </div>
@@ -285,9 +286,9 @@
                                 <div class="card-body p-5 text-center">
                                     <div class="mb-4 text-primary"><i class="fas fa-eye fa-3x"></i></div>
                                     <h3 class="card-title fw-bold text-primary mb-3">Our Vision</h3>
-                                    <p class="card-text lead">
+                                    <p class="card-text lead text-justify">
                                         To be a trusted global engineering partner, recognized for innovative solutions,
-                                        intelligent engineering, and uncompromising integrity, delivering reliable
+                                        intelligent engineering and uncompromising integrity, delivering reliable
                                         mechanical and gearbox solutions across international industrial markets.
                                     </p>
                                 </div>
@@ -304,27 +305,27 @@
                                     <ul class="list-unstyled">
                                         <li class="mb-3 d-flex align-items-start">
                                             <i class="fas fa-check-circle text-success mt-1 me-3"></i>
-                                            <span>To provide high-quality mechanical components, gearbox spare parts,
+                                            <span class="text-justify">To provide high-quality mechanical components, gearbox spare parts
                                                 and engineering services that meet global standards.</span>
                                         </li>
                                         <li class="mb-3 d-flex align-items-start">
                                             <i class="fas fa-check-circle text-success mt-1 me-3"></i>
-                                            <span>To combine engineering intelligence and practical experience to solve
+                                            <span class="text-justify">To combine engineering intelligence and practical experience to solve
                                                 complex industrial challenges.</span>
                                         </li>
                                         <li class="mb-3 d-flex align-items-start">
                                             <i class="fas fa-check-circle text-success mt-1 me-3"></i>
-                                            <span>To build long-term partnerships through transparent communication,
-                                                reliability, and consistent performance.</span>
+                                            <span class="text-justify">To build long-term partnerships through transparent communication,
+                                                reliability and consistent performance.</span>
                                         </li>
                                         <li class="mb-3 d-flex align-items-start">
                                             <i class="fas fa-check-circle text-success mt-1 me-3"></i>
-                                            <span>To drive continuous innovation in sourcing, design, and service to
+                                            <span class="text-justify">To drive continuous innovation in sourcing, design and service to
                                                 create value for customers worldwide.</span>
                                         </li>
                                         <li class="mb-0 d-flex align-items-start">
                                             <i class="fas fa-check-circle text-success mt-1 me-3"></i>
-                                            <span>To operate with integrity in every engagement, ensuring trust,
+                                            <span class="text-justify">To operate with integrity in every engagement, ensuring trust,
                                                 quality, and accountability.</span>
                                         </li>
                                     </ul>
@@ -343,12 +344,12 @@
                 <p class="lead">Comprehensive Mechanical &amp; Engineering Solutions</p>
 
                 <div class="model-container mt-5 animate-on-scroll">
-                    <model-viewer src="helical gear shaft 3d model.glb" alt="Helical Gear Shaft 3D Model" loading="lazy"
+                    <model-viewer src="helical-gear-shaft-3d-model.glb" alt="Helical Gear Shaft 3D Model" loading="lazy"
                         camera-controls disable-zoom shadow-intensity="1"
                         style="width: 100%; height: 250px; background-color: transparent;">
                     </model-viewer>
                     <h5 class="text-primary fw-bold mt-3">Helical Gear Shaft</h5>
-                    <p class="text-muted mt-2" style="max-width: 600px; margin: 0 auto;">
+                    <p class="text-muted mt-2 text-justify" style="max-width: 600px; margin: 0 auto;">
                         Our precision-engineered Helical Gear Shafts utilize angled teeth for smoother, quieter
                         operation and high-load transmission. Ideal for heavy-duty automotive and industrial machinery
                         where durability and efficiency are paramount.
@@ -357,29 +358,29 @@
 
                 <!-- Worm Gear Model -->
                 <div class="model-container mt-5 animate-on-scroll">
-                    <model-viewer src="worm gear 3d model.glb" alt="Worm Gear 3D Model" loading="lazy" camera-controls
+                    <model-viewer src="worm-gear-3d-model.glb" alt="Worm Gear 3D Model" loading="lazy" camera-controls
                         disable-zoom shadow-intensity="1"
                         style="width: 100%; height: 250px; background-color: transparent;">
                     </model-viewer>
                     <h5 class="text-primary fw-bold mt-3">Worm Gear Shaft</h5>
-                    <p class="text-muted mt-2" style="max-width: 600px; margin: 0 auto;">
+                    <p class="text-muted mt-2 text-justify" style="max-width: 600px; margin: 0 auto;">
                         The Worm Gear Shaft offers high reduction ratios in a compact footprint, ensuring precise speed
                         regulation. Perfect for elevators and conveyors, providing self-locking safety and smooth
                         transmission.
                     </p>
                 </div>
 
-                <!-- Metal Gear Model -->
+                <!-- Bevel Gear Model -->
                 <div class="model-container mt-5 animate-on-scroll">
-                    <model-viewer src="metal gear shaft 3d model.glb" alt="Metal Gear Shaft 3D Model" loading="lazy"
+                    <model-viewer src="bevel-gears.glb" alt="Bevel Gear 3D Model" loading="lazy"
                         camera-controls disable-zoom shadow-intensity="1"
-                        style="width: 100%; height: 250px; background-color: transparent;">
+                        style="width: 100%; height: 350px; background-color: transparent;">
                     </model-viewer>
-                    <h5 class="text-primary fw-bold mt-3">Metal Gear Shaft</h5>
-                    <p class="text-muted mt-2" style="max-width: 600px; margin: 0 auto;">
-                        Constructed from high-grade alloy steel, our Metal Gear Shafts operate reliably under extreme
-                        torque. Hardened for wear resistance, they deliver maximum power transfer in the most demanding
-                        environments.
+                    <h5 class="text-primary fw-bold mt-3">Bevel Gears</h5>
+                    <p class="text-muted mt-2 text-justify" style="max-width: 600px; margin: 0 auto;">
+                        Our Bevel Gears are engineered for high-efficiency power transmission in right-angle drives. 
+                        Precision-cut for smooth engagement and reduced noise, they are ideal for heavy machinery, 
+                        automotive differentials, and industrial gearboxes requiring reliable torque transfer.
                     </p>
                 </div>
             </div>
@@ -421,7 +422,7 @@
                                 Mechanical Components Sourcing</h3>
                             <div class="row align-items-center">
                                 <div class="col-lg-5 mb-4 mb-lg-0">
-                                    <img src="service-sourcing.png" class="img-fluid rounded shadow w-100"
+                                    <img src="mechanical-component-sourcing.png" class="img-fluid rounded shadow w-100"
                                         alt="Mechanical Components Sourcing" style="object-fit: cover;">
                                 </div>
                                 <div class="col-lg-7">
@@ -440,7 +441,7 @@
                                 <div class="col-md-6 mb-4">
                                     <h5 class="text-primary fw-bold"><i class="fas fa-cubes"></i> 1. Casting Components
                                     </h5>
-                                    <p>We source high-quality cast components suitable for demanding industrial
+                                    <p class="text-justify">We source high-quality cast components suitable for demanding industrial
                                         applications:</p>
                                     <ul>
                                         <li>Grey Iron & Ductile Iron Castings</li>
@@ -452,7 +453,7 @@
                                 <div class="col-md-6 mb-4">
                                     <h5 class="text-primary fw-bold"><i class="fas fa-cogs"></i> 2. Machined Components
                                     </h5>
-                                    <p>Precision-machined parts sourced from trusted machine shops:</p>
+                                    <p class="text-justify">Precision-machined parts sourced from trusted machine shops:</p>
                                     <ul>
                                         <li>CNC Turning & Milling Components</li>
                                         <li>Housings, Flanges, Bushes & Sleeves</li>
@@ -462,7 +463,7 @@
                                 </div>
                                 <div class="col-md-6 mb-4">
                                     <h5 class="text-primary fw-bold"><i class="fas fa-cog"></i> 3. Gears</h5>
-                                    <p>Complete sourcing solutions for industrial gears:</p>
+                                    <p class="text-justify">Complete sourcing solutions for industrial gears:</p>
                                     <ul>
                                         <li>Helical Gears, Spur Gears, Bevel Gears, Worm Gears</li>
                                         <li>Planetary Gear Components</li>
@@ -470,7 +471,7 @@
                                 </div>
                                 <div class="col-md-6 mb-4">
                                     <h5 class="text-primary fw-bold"><i class="fas fa-arrows-alt-h"></i> 4. Shafts</h5>
-                                    <p>Robust and precision shafts for mechanical and gearbox applications:</p>
+                                    <p class="text-justify">Robust and precision shafts for mechanical and gearbox applications:</p>
                                     <ul>
                                         <li>Input & Output Shafts, Stepped & Splined Shafts</li>
                                         <li>Heat-treated and ground shafts</li>
@@ -482,7 +483,7 @@
                             <div class="alert alert-light border-primary mt-3">
                                 <h5 class="text-primary fw-bold"><i class="fas fa-clipboard-check"></i> Quality &
                                     Inspection</h5>
-                                <p class="mb-0">Quality is integral to our sourcing process. We provide raw material
+                                <p class="mb-0 text-justify">Quality is integral to our sourcing process. We provide raw material
                                     test certificates, dimensional & visual inspection, hardness & metallurgical
                                     testing, and third-party inspection support on request.</p>
                             </div>
@@ -514,7 +515,7 @@
                                 Parts Sourcing</h3>
                             <div class="row align-items-center">
                                 <div class="col-lg-5 mb-4 mb-lg-0 order-lg-2">
-                                    <img src="service-gearbox.png" class="img-fluid rounded shadow w-100"
+                                    <img src="gearbox-spare-parts-sourcing.png" class="img-fluid rounded shadow w-100"
                                         alt="Gearbox Spare Parts Sourcing" style="object-fit: cover;">
                                 </div>
                                 <div class="col-lg-7 order-lg-1">
@@ -581,7 +582,7 @@
                             <div class="glass-alert mt-3">
                                 <h5 class="text-primary fw-bold"><i class="fas fa-search-plus"></i> Reverse Engineering
                                     & Custom Spares</h5>
-                                <p class="mb-0 text-dark">We specialize in reverse engineering gearbox spare parts where
+                                <p class="mb-0 text-dark text-justify">We specialize in reverse engineering gearbox spare parts where
                                     OEM drawings are unavailable, gearboxes are obsolete, or cost-effective alternatives
                                     are required. Our team ensures dimensional accuracy, material compatibility, and
                                     performance reliability.</p>
@@ -591,7 +592,7 @@
                                 <div class="col-md-6">
                                     <h5 class="text-primary fw-bold"><i class="fas fa-clipboard-check"></i> Quality &
                                         Inspection</h5>
-                                    <p>Every sourced gearbox spare part undergoes strict quality checks:</p>
+                                    <p class="text-justify">Every sourced gearbox spare part undergoes strict quality checks:</p>
                                     <ul>
                                         <li>Material & heat treatment verification</li>
                                         <li>Dimensional inspection</li>
@@ -602,14 +603,14 @@
                                 <div class="col-md-6">
                                     <h5 class="text-primary fw-bold"><i class="fas fa-industry"></i> Industries We Serve
                                     </h5>
-                                    <p>Cement & Mining, Steel & Power Plants, Material Handling Systems, Sugar, Paper &
+                                    <p class="text-justify">Cement & Mining, Steel & Power Plants, Material Handling Systems, Sugar, Paper &
                                         Chemical Industries, Heavy Engineering & OEMs.</p>
                                 </div>
                             </div>
 
                             <div class="mt-4">
                                 <h5 class="text-primary fw-bold">From Breakdown to Delivery</h5>
-                                <p>Whether it is a single spare, complete gear set, or critical breakdown component, I
+                                <p class="text-justify">Whether it is a single spare, complete gear set, or critical breakdown component, I
                                     CUBE ENGINEERING LLP ensures fast sourcing, technical accuracy, and dependable
                                     delivery—helping you keep your operations running smoothly.</p>
                             </div>
@@ -645,7 +646,7 @@
                             <div class="glass-alert mt-4 mb-4">
                                 <h5 class="text-primary fw-bold"><i class="fas fa-search"></i> 1. Reverse Engineering
                                 </h5>
-                                <p class="mb-2"><strong>Recreating accurate designs from existing components and
+                                <p class="mb-2 text-justify"><strong>Recreating accurate designs from existing components and
                                         assemblies.</strong> When original drawings or data are unavailable, our reverse
                                     engineering services help recreate components with precision and confidence.</p>
                                 <ul>
@@ -663,7 +664,7 @@
                                 <div class="col-md-6 mb-4">
                                     <h5 class="text-primary fw-bold"><i class="fas fa-file-invoice"></i> 2. BOM (Bill of
                                         Materials) Preparation</h5>
-                                    <p>Structured documentation for efficient sourcing and production.</p>
+                                    <p class="text-justify">Structured documentation for efficient sourcing and production.</p>
                                     <ul>
                                         <li>BOM creation from drawings, assemblies, or physical samples</li>
                                         <li>Material and grade specification for each component</li>
@@ -675,7 +676,7 @@
                                 <div class="col-md-6 mb-4">
                                     <h5 class="text-primary fw-bold"><i class="fas fa-user-tie"></i> 3. Engineering
                                         Consultancy</h5>
-                                    <p>Practical engineering guidance backed by industry experience.</p>
+                                    <p class="text-justify">Practical engineering guidance backed by industry experience.</p>
                                     <ul>
                                         <li>Design review and validation</li>
                                         <li>Gearbox and transmission system advisory</li>
@@ -730,7 +731,7 @@
                                 Servicing</h3>
                             <div class="row align-items-center">
                                 <div class="col-lg-5 mb-4 mb-lg-0 order-lg-2">
-                                    <img src="service-servicing.png" class="img-fluid rounded shadow w-100"
+                                    <img src="gearbox-servicing.png" class="img-fluid rounded shadow w-100"
                                         alt="Gearbox Servicing" style="object-fit: cover;">
                                 </div>
                                 <div class="col-lg-7 order-lg-1">
