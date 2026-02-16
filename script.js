@@ -17,10 +17,11 @@ document.addEventListener("DOMContentLoaded", () => {
  */
 function runHeroAnimations() {
   // Wrap Title text in spans for letter animation
-  const title = document.getElementById('hero-title');
-  if (title) {
-    title.innerHTML = title.textContent.replace(/\S/g, "<span class='letter' style='display:inline-block'>$&</span>");
-  }
+  // Wrap Title text in spans for letter animation - respecting structure
+  const titleParts = document.querySelectorAll('.hero-text-part');
+  titleParts.forEach(part => {
+    part.innerHTML = part.textContent.replace(/\S/g, "<span class='letter' style='display:inline-block'>$&</span>");
+  });
 
   // Wrap Tagline text for decoding effect
   const tagline = document.getElementById('hero-tagline');
