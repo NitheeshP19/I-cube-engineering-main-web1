@@ -93,8 +93,9 @@ h1, h2, h3, h4.text-primary.fw-bold,
 .logo-wrapper img {
     height: 100%;
     width: 100%;
-    object-fit: cover;
-    transform: scale(1.2); /* Zoom to reduce white space */
+    object-fit: contain;
+    object-position: center;
+    transform: scale(1.15); /* Zoom to reduce white space */
     transition: all 0.3s ease;
 }
 
