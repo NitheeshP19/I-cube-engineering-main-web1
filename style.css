@@ -1413,22 +1413,25 @@ body {
 /* Mobile Adjustments */
 @media (max-width: 768px) {
     .footer-overlay-left {
-        left: 5%;
-        font-size: 5.5vw; /* Slightly bigger on mobile too */
-        gap: 8px;
+        left: 2%;
+        width: 38%; /* Slightly tighter to avoid center */
+        font-size: 5vw; /* Reduced from 6vw to avoid crowding */
+        gap: 6px;
+        white-space: nowrap; 
     }
     .footer-overlay-left i {
-        font-size: 5vw;
+        font-size: 4.5vw;
     }
     
     .footer-overlay-right {
-        right: 3%;
-        font-size: 2.5vw; /* Increased from 2.2vw */
-        gap: 6px;
-        max-width: 60%; /* Expanded from 45% to cover more orange area */
+        right: 2%;
+        font-size: 2.2vw; /* SIGNIFICANTLY reduced from 3.5vw */
+        gap: 5px;
+        max-width: 48%; /* STRICT limit to stop overlap with blue curve */
+        line-height: 1.3;
     }
     .footer-overlay-right i {
-        font-size: 3.5vw;
+        font-size: 3vw;
         margin-top: 0;
     }
 }
