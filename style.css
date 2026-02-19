@@ -1,7 +1,7 @@
 /* I CUBE ENGINEERING LLP - Brand Styles */
 
-/* Google Fonts Import - Russo One (similar to Pronave) and PT Sans */
-@import url('https://fonts.googleapis.com/css2?family=Russo+One&family=PT+Sans:ital,wght@0,400;0,700;1,400;1,700&display=swap');
+/* Google Fonts Import - Russo One, PT Sans, and Montserrat */
+@import url('https://fonts.googleapis.com/css2?family=Montserrat:wght@800;900&family=Russo+One&family=PT+Sans:ital,wght@0,400;0,700;1,400;1,700&display=swap');
 
 /* ============================================
    BRAND COLOR VARIABLES (Matching Visiting Card)
@@ -1331,5 +1331,105 @@ body {
         text-align: center;
     }
     .footer-address { text-align: center; }
+}
+
+/* ============================================
+   FOOTER IMAGE OVERLAY TEXT STYLES
+   ============================================ */
+.footer-overlay-wrapper {
+    position: relative;
+    width: 100%;
+}
+
+.footer-bg-image {
+    width: 100%;
+    height: auto;
+    display: block;
+}
+
+.footer-overlay-content {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    display: flex;
+    align-items: center;
+    pointer-events: none;
+}
+
+/* Phone Number Section (Left) */
+.footer-overlay-left {
+    position: absolute;
+    left: 2%; /* Slight offset to align with visual white space */
+    width: 32%; /* Constrained width to fit before the curve */
+    top: 50%; 
+    transform: translateY(-50%);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 12px;
+    color: #0d2c52; /* Deep Blue */
+    font-family: 'Montserrat', sans-serif; /* Cleaner, bolder font like reference */
+    font-weight: 900;
+    font-size: 3.5vw; /* Balanced size */
+    z-index: 2;
+    letter-spacing: -0.02em; /* Tighter letter spacing like reference */
+}
+
+.footer-overlay-left i {
+    color: var(--brand-orange);
+    font-size: 3vw;
+    margin-top: -0.1em;
+}
+
+/* Address Section (Right) */
+.footer-overlay-right {
+    position: absolute;
+    right: 2%; /* Keep close to edge */
+    top: 50%;
+    transform: translateY(-50%);
+    display: flex;
+    align-items: flex-start;
+    gap: 12px;
+    color: white;
+    font-family: 'Montserrat', sans-serif;
+    font-weight: 800;
+    font-size: 2.3vw; /* Maximum Size */
+    text-align: left;
+    max-width: 65%; /* Expand width to cover vast majority */
+    line-height: 1.25;
+    text-transform: uppercase;
+    z-index: 2;
+    letter-spacing: 0.5px;
+}
+
+.footer-overlay-right i {
+    color: white;
+    font-size: 2.8vw; /* Match text scale */
+    margin-top: 0.1em;
+}
+
+/* Mobile Adjustments */
+@media (max-width: 768px) {
+    .footer-overlay-left {
+        left: 5%;
+        font-size: 5.5vw; /* Slightly bigger on mobile too */
+        gap: 8px;
+    }
+    .footer-overlay-left i {
+        font-size: 5vw;
+    }
+    
+    .footer-overlay-right {
+        right: 3%;
+        font-size: 2.5vw; /* Increased from 2.2vw */
+        gap: 6px;
+        max-width: 60%; /* Expanded from 45% to cover more orange area */
+    }
+    .footer-overlay-right i {
+        font-size: 3.5vw;
+        margin-top: 0;
+    }
 }
 
