@@ -146,6 +146,34 @@ body.glass-mode .bg-primary {
     border-color: var(--brand-blue) !important;
 }
 
+/* ============================================
+   CUSTOM NATIVE HERO TITLE (Replaces Bootstrap)
+   ============================================ */
+.custom-hero-title {
+    color: var(--brand-orange); /* Replaced deep blue with brand orange */
+    font-size: calc(1.475rem + 2.5vw); /* Replaces display-4 */
+    font-weight: bold; /* Replaces fw-bold */
+    margin-bottom: 1rem; /* Replaces mb-3 */
+    line-height: 1.2;
+    /* Do NOT add animate-on-scroll here to stop it pulling the site down */
+}
+
+@media (min-width: 1200px) {
+    .custom-hero-title {
+        font-size: 3.5rem; /* Cap size on huge monitors */
+    }
+}
+
+.custom-hero-solutions {
+    display: inline; /* Replaces d-md-inline for desktop */
+}
+
+@media (max-width: 767px) {
+    .custom-hero-solutions {
+        display: block; /* Replaces d-block for mobile */
+    }
+}
+
 .btn-primary {
     background-color: var(--brand-blue);
     border-color: var(--brand-blue-dark);
