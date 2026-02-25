@@ -154,8 +154,7 @@ function showSection(sectionId, event, updateState = true) {
     history.pushState(null, null, `#${sectionId}`);
   }
 
-  // 5. Scroll to top
-  window.scrollTo(0, 0);
+  // 5. Scroll to top removed to prevent jarring jumps on load
 
   // 6. Collapse mobile menu
   const navbarCollapse = document.getElementById("navbarNav");

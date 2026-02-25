@@ -46,12 +46,12 @@ body.glass-mode {
     background-attachment: fixed;
 }
 
-/* Brand Typography - Pronave style (using Russo One) */
+/* Brand Typography - Pronave style */
 .brand-heading,
 .navbar-brand,
-h1, h2, h3, h4.text-primary.fw-bold,
+h1, h2, h3, h4, h5, h6,
 .display-4, .display-5 {
-    font-family: 'Russo One', sans-serif !important;
+    font-family: 'Pronave', sans-serif !important;
     letter-spacing: 1px;
 }
 
@@ -63,6 +63,8 @@ h1, h2, h3, h4.text-primary.fw-bold,
     font-weight: normal;
     font-style: normal;
     font-display: swap;
+    /* Restricting to letters and spaces only, as numbers/punctuation contain demo watermarks */
+    unicode-range: U+0020, U+0041-005A, U+0061-007A;
 }
 
 /* Enhanced Navbar Brand Styling */
@@ -94,8 +96,11 @@ h1, h2, h3, h4.text-primary.fw-bold,
     height: 100%;
     width: 100%;
     object-fit: contain;
-    object-position: center;
-    transform: scale(1.15); /* Zoom to reduce white space */
+    /* Image has heavy whitespace on top and left. */
+    /* X: >50% pushes image left, meaning visible part goes right. */
+    /* Y: >50% pushes image up, meaning visible part goes down. */
+    object-position: 65% 60%; 
+    transform: scale(1.35); /* Safe scale that won't clip */
     transition: all 0.3s ease;
 }
 
@@ -1392,13 +1397,17 @@ body {
 .footer-overlay-wrapper {
     position: relative;
     width: 100%;
-    max-width: 1000px;
+    /* Remove max-width so the banner image stretches full width across any monitor */
+    max-width: none;
     margin: 0 auto;
 }
 
 .footer-bg-image {
     width: 100%;
-    height: auto;
+    /* Set a max height so it behaves like a banner/navbar */
+    max-height: 250px;
+    /* Use cover so it fills the width but doesn't squish horizontally */
+    object-fit: cover;
     display: block;
 }
 
@@ -1413,81 +1422,107 @@ body {
     pointer-events: none;
 }
 
-/* Phone Number Section (Left) */
+/* Phone Section (Left) */
 .footer-overlay-left {
     position: absolute;
-    left: 2%; /* Slight offset to align with visual white space */
-    width: 32%; /* Constrained width to fit before the curve */
+    left: 4%; /* Nice padding from the left edge */
+    width: 45%; 
     top: 50%; 
     transform: translateY(-50%);
     display: flex;
-    justify-content: center;
+    justify-content: flex-start;
     align-items: center;
-    gap: 12px;
-    color: #0d2c52; /* Deep Blue */
-    font-family: 'Montserrat', sans-serif; /* Cleaner, bolder font like reference */
-    font-weight: 900;
-    font-size: 3.5vw; /* Balanced size */
+    color: #0d2c52; /* Deep Brand Blue for contrast on light background */
+    font-family: 'Pronave', sans-serif !important;
+    font-weight: bold;
+    font-size: 3vw; 
     z-index: 2;
-    letter-spacing: -0.02em; /* Tighter letter spacing like reference */
+    /* Removed text shadow for a cleaner, native look */
+}
+
+/* Make link styling seamless */
+.footer-overlay-left a {
+    color: inherit;
+    text-decoration: none;
+    display: flex;
+    align-items: center;
+    transition: transform 0.3s ease;
+}
+
+.footer-overlay-left a:hover {
+    transform: scale(1.05);
 }
 
 .footer-overlay-left i {
-    color: var(--brand-orange);
-    font-size: 3vw;
-    margin-top: -0.1em;
+    color: var(--brand-orange); /* Highlight icon in orange */
+    font-size: 3.5vw;
+    margin-right: 12px;
 }
 
-/* Address Section (Right) */
+/* Phone & Address Section (Right) */
 .footer-overlay-right {
     position: absolute;
-    right: 2%; /* Keep close to edge */
+    right: 4%; 
+    width: 45%; 
     top: 50%;
     transform: translateY(-50%);
     display: flex;
-    align-items: flex-start;
-    gap: 12px;
-    color: white;
-    font-family: 'Montserrat', sans-serif;
-    font-weight: 800;
-    font-size: 2.3vw; /* Maximum Size */
-    text-align: left;
-    max-width: 65%; /* Expand width to cover vast majority */
-    line-height: 1.25;
-    text-transform: uppercase;
+    justify-content: flex-end; 
+    align-items: center;
+    color: white; 
+    font-family: 'Pronave', sans-serif !important; 
+    font-size: 1.8vw; 
+    text-align: right;
     z-index: 2;
+    text-shadow: 1px 1px 2px rgba(0,0,0,0.3); 
+    text-transform: uppercase; /* Uniform capitalization for mixed fonts */
+}
+
+/* Container for actual right-aligned info */
+.footer-info {
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+}
+
+.footer-info p {
+    margin: 0;
+    line-height: 1.4;
     letter-spacing: 0.5px;
 }
 
+/* Icon sizing for right block */
 .footer-overlay-right i {
     color: white;
-    font-size: 2.8vw; /* Match text scale */
-    margin-top: 0.1em;
+    font-size: 2vw; /* Proportional to text */
+    margin-right: 8px; /* Space between icon and text */
 }
 
-/* Mobile Adjustments */
-@media (max-width: 768px) {
-    .footer-overlay-left {
-        left: 2%;
-        width: 38%; /* Slightly tighter to avoid center */
-        font-size: 5vw; /* Reduced from 6vw to avoid crowding */
-        gap: 6px;
-        white-space: nowrap; 
-    }
-    .footer-overlay-left i {
-        font-size: 4.5vw;
-    }
-    
-    .footer-overlay-right {
-        right: 2%;
-        font-size: 2.2vw; /* SIGNIFICANTLY reduced from 3.5vw */
-        gap: 5px;
-        max-width: 48%; /* STRICT limit to stop overlap with blue curve */
-        line-height: 1.3;
-    }
-    .footer-overlay-right i {
-        font-size: 3vw;
-        margin-top: 0;
-    }
+/* Responsive Adjustments for Footer Text Overlay */
+@media (max-width: 991px) {
+    .footer-overlay-left { width: 45%; font-size: 3.5vw; }
+    .footer-overlay-right { width: 48%; font-size: 2vw; }
+    .footer-overlay-left i { font-size: 4vw; margin-right: 8px; }
+    .footer-overlay-right i { font-size: 2.2vw; }
+    .footer-info { gap: 8px; }
 }
+
+@media (max-width: 768px) {
+    .footer-overlay-left { width: 42%; font-size: 3.8vw; white-space: nowrap; }
+    .footer-overlay-right { width: 52%; font-size: 2.3vw; }
+    .footer-overlay-left i { font-size: 4.5vw; margin-right: 6px; }
+    .footer-overlay-right i { font-size: 2.5vw; }
+    .footer-info { gap: 4px; }
+    .footer-info p { line-height: 1.2; letter-spacing: 0.2px; }
+}
+
+@media (max-width: 576px) {
+    .footer-overlay-left { width: 40%; font-size: 4.2vw; left: 3%; }
+    .footer-overlay-right { width: 54%; font-size: 2.6vw; right: 3%; }
+    .footer-overlay-left i { font-size: 5vw; margin-right: 4px; }
+    .footer-overlay-right i { font-size: 2.8vw; margin-right: 3px; }
+    .footer-info { gap: 2px; }
+    .footer-info p { line-height: 1.1; letter-spacing: 0px; }
+}
+
 
