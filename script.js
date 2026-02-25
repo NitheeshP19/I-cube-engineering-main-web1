@@ -7,9 +7,6 @@ document.addEventListener("DOMContentLoaded", () => {
 
   // Initialize Scroll Animations
   setupScrollAnimations();
-  
-  // Run Advanced Hero Animations
-  runHeroAnimations();
 });
 
 /**
