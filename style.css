@@ -1571,9 +1571,10 @@ body {
 /* Reduce size on tablet and mobile to show map info box */
 @media (max-width: 767.98px) {
     .map-logo-overlay {
-        width: 65px;
-        padding: 6px;
-        border-bottom-left-radius: 8px;
+        width: 35px; /* Extremely small to not block the native map info box */
+        padding: 3px;
+        border-bottom-left-radius: 4px;
+        box-shadow: none; /* remove shadow to be less intrusive */
     }
 }
 
