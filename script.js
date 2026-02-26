@@ -1,6 +1,18 @@
 // I Cubic Engineering - SPA Logic
 
+// 1. Prevent native scroll restoration on refresh
+if ('scrollRestoration' in history) {
+  history.scrollRestoration = 'manual';
+}
+
+// 2. Force scroll to very top immediately 
+window.scrollTo(0, 0);
+
 document.addEventListener("DOMContentLoaded", () => {
+  // Force reset scroll again to override any native anchor jumping (e.g., if URL has #home)
+  window.scrollTo(0, 0);
+  setTimeout(() => window.scrollTo(0, 0), 10);
+
   // Initial load: Check hash or default to home
   const hash = window.location.hash.substring(1); // Remove '#'
   showSection(hash || "home");
