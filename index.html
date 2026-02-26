@@ -17,7 +17,11 @@
     <meta property="og:description" content="I CUBE ENGINEERING LLP offers premier mechanical component sourcing, gearbox spare parts, servicing, and engineering design solutions in India and globally.">
     <meta property="og:url" content="https://www.icubeengg.com">
     <meta property="og:image" content="https://www.icubeengg.com/logo.png">
+    <meta property="og:image:width" content="1200">
+    <meta property="og:image:height" content="630">
     <meta property="og:type" content="website">
+    <meta property="og:site_name" content="I CUBE ENGINEERING LLP">
+    <meta name="theme-color" content="#1a5ba8">
 
     <!-- Twitter Card -->
     <meta name="twitter:card" content="summary_large_image">
@@ -42,6 +46,11 @@
           "url": "https://www.icubeengg.com",
           "logo": "https://www.icubeengg.com/logo.png",
           "description": "Innovation, Integrity, and Intelligence in Engineering Services.",
+          "sameAs": [
+            "https://www.linkedin.com/company/i-cube-engineering-llp",
+            "https://www.facebook.com/icubeengineeringllp",
+            "https://www.instagram.com/icubeengineeringllp"
+          ],
           "contactPoint": {
             "@type": "ContactPoint",
             "telephone": "+91-99433-11158",
@@ -52,7 +61,7 @@
           }
         },
         {
-          "@type": "ProfessionalService",
+          "@type": ["ProfessionalService", "EngineeringService"],
           "@id": "https://www.icubeengg.com/#localbusiness",
           "name": "I CUBE ENGINEERING LLP",
           "url": "https://www.icubeengg.com",
@@ -73,7 +82,44 @@
             "latitude": 11.312981,
             "longitude": 77.763042
           },
+          "openingHoursSpecification": [
+            {
+              "@type": "OpeningHoursSpecification",
+              "dayOfWeek": [
+                "Monday",
+                "Tuesday",
+                "Wednesday",
+                "Thursday",
+                "Friday",
+                "Saturday"
+              ],
+              "opens": "08:00",
+              "closes": "20:00"
+            }
+          ],
           "priceRange": "$$"
+        },
+        {
+          "@type": "FAQPage",
+          "@id": "https://www.icubeengg.com/#faq",
+          "mainEntity": [
+            {
+              "@type": "Question",
+              "name": "What mechanical engineering services does I CUBE ENGINEERING LLP provide?",
+              "acceptedAnswer": {
+                "@type": "Answer",
+                "text": "We offer premier mechanical component sourcing, gearbox spare parts, complete gearbox servicing, reverse engineering, and BOM preparation solutions."
+              }
+            },
+            {
+              "@type": "Question",
+              "name": "Where are you located and what areas do you serve?",
+              "acceptedAnswer": {
+                "@type": "Answer",
+                "text": "We are based in Erode, Tamil Nadu, India, and provide our engineering services and components both nationally and globally."
+              }
+            }
+          ]
         }
       ]
     }
