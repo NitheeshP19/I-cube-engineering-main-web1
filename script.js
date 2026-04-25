@@ -19,6 +19,13 @@ document.addEventListener("DOMContentLoaded", () => {
 
   // Initialize Scroll Animations
   setupScrollAnimations();
+
+  // Show Announcement Modal if not shown this session
+  if (!sessionStorage.getItem('announcementShown')) {
+    const announcementModal = new bootstrap.Modal(document.getElementById('announcementModal'));
+    announcementModal.show();
+    sessionStorage.setItem('announcementShown', 'true');
+  }
 });
 
 /**
