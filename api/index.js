@@ -60,5 +60,23 @@ app.post('/api/contact', async (req, res) => {
 
 
 
+// Visit Counter Route (Proxy to CounterAPI to avoid CORS/Ad-blocker issues)
+app.get('/api/visits', async (req, res) => {
+    try {
+        const response = await fetch('https://api.counterapi.dev/v1/icubeengineering/visits/up');
+        const data = await response.json();
+        
+        // Add an offset of 900 as requested by the user
+        if (data && typeof data.count !== 'undefined') {
+            data.count = parseInt(data.count) + 900;
+        }
+        
+        res.status(200).json(data);
+    } catch (error) {
+        console.error('Visit Counter Error:', error);
+        res.status(500).json({ success: false, count: "Unavailable" });
+    }
+});
+
 // Vercel Serverless Export
 module.exports = app;

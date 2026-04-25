@@ -75,7 +75,7 @@ function runHeroAnimations() {
   } else {
       console.warn("Anime.js not loaded, skipping hero animations");
       // Fallback: make visible if anime.js fails
-      if(title) title.style.opacity = 1;
+      titleParts.forEach(part => part.style.opacity = 1);
       if(tagline) tagline.style.opacity = 1;
   }
 }
@@ -335,21 +335,29 @@ document.addEventListener('DOMContentLoaded', () => {
 });
 
 /**
- * Update Visit Count using CounterAPI
+ * Update Visit Count using local proxy (which calls CounterAPI)
  */
 function updateVisitCount() {
     const counterElement = document.getElementById('visit-count');
     if (!counterElement) return;
 
-    // Fetch from external CounterAPI (increments by 1)
-    fetch('https://api.counterapi.dev/v1/icubeengineering/visits/up')
-        .then(response => response.json())
+    // Fetch from our local API proxy to avoid CORS/Ad-blocker issues
+    fetch('/api/visits')
+        .then(response => {
+            if (!response.ok) throw new Error('Network response was not ok');
+            return response.json();
+        })
         .then(data => {
-            counterElement.innerText = data.count;
+            if (data && typeof data.count !== 'undefined') {
+                // Format with commas for readability
+                counterElement.innerText = data.count.toLocaleString();
+            } else {
+                throw new Error('Invalid data format');
+            }
         })
         .catch(error => {
             console.error('Error fetching visit count:', error);
-            counterElement.innerText = "Error";
+            counterElement.innerText = "Unavailable";
         });
 }
 

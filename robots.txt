@@ -1,4 +1,4 @@
-# robots.txt for https://nitheeshp19.github.io/I-cube-engineering-main-web1/
+# robots.txt for https://www.icubeengg.com/
 
 User-agent: *
 Allow: /
@@ -26,4 +26,4 @@ User-agent: CCBot
 Allow: /
 
 # Sitemap location
-Sitemap: https://nitheeshp19.github.io/I-cube-engineering-main-web1/sitemap.xml
+Sitemap: https://www.icubeengg.com/sitemap.xml
